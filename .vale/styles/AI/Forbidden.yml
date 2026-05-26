@@ -1,0 +1,123 @@
+extends: existence
+message: |
+  Potentially dangerous instruction or payload marker: '%s'.
+  Remove it or explicitly justify it in a reviewed security exception.
+level: error
+ignorecase: true
+nonword: true
+tokens:
+  # Remote script execution
+  - 'curl\s+[^|\n]+\|\s*(sh|bash|zsh|fish)'
+  - 'wget\s+[^|\n]+\|\s*(sh|bash|zsh|fish)'
+  - 'iwr\s+[^|\n]+\|\s*iex'
+  - 'irm\s+[^|\n]+\|\s*iex'
+  - 'Invoke-WebRequest\s+[^|\n]+\|\s*Invoke-Expression'
+  - 'Invoke-RestMethod\s+[^|\n]+\|\s*Invoke-Expression'
+
+  # Shell evaluation and command injection primitives
+  - '\beval\s*\('
+  - '\beval\s+'
+  - '\bexec\s*\('
+  - '\bexec\s+'
+  - '\bsource\s+<\('
+  - '\bbash\s+-c\s+'
+  - '\bsh\s+-c\s+'
+  - '\bzsh\s+-c\s+'
+  - '\bpython\s+-c\s+'
+  - '\bpython3\s+-c\s+'
+  - '\bperl\s+-e\s+'
+  - '\bruby\s+-e\s+'
+  - '\bnode\s+-e\s+'
+
+  # Destructive filesystem operations
+  - 'rm\s+-rf\s+/'
+  - 'rm\s+-fr\s+/'
+  - 'sudo\s+rm\s+-rf'
+  - 'chmod\s+777'
+  - 'chmod\s+-R\s+777'
+  - 'chown\s+-R\s+'
+  - 'mkfs\.'
+  - 'dd\s+if=.*\s+of=/dev/'
+  - 'wipefs\s+'
+  - 'shred\s+'
+  - 'srm\s+'
+
+  # Credential and token exfiltration patterns
+  - 'cat\s+~/.ssh/'
+  - 'cat\s+/etc/shadow'
+  - 'cat\s+/etc/passwd'
+  - "printenv"
+  - 'env\s*\|\s*curl'
+  - 'env\s*\|\s*wget'
+  - '\$GITHUB_TOKEN'
+  - '\$\{\{\s*secrets\.'
+  - "aws_access_key_id"
+  - "aws_secret_access_key"
+  - "BEGIN RSA PRIVATE KEY"
+  - "BEGIN OPENSSH PRIVATE KEY"
+  - "BEGIN PRIVATE KEY"
+  - "ghp_[A-Za-z0-9_]+"
+  - "github_pat_[A-Za-z0-9_]+"
+  - "xox[baprs]-[A-Za-z0-9-]+"
+
+  # Encoded payload markers
+  - 'base64\s+-d'
+  - 'base64\s+--decode'
+  - 'openssl\s+enc\s+'
+  - 'xxd\s+-r'
+  - 'certutil\s+-decode'
+  - "FromBase64String"
+  - 'atob\s*\('
+
+  # Reverse shells and suspicious networking
+  - 'nc\s+-e\s+'
+  - 'ncat\s+-e\s+'
+  - 'netcat\s+-e\s+'
+  - 'bash\s+-i\s+>\&\s+/dev/tcp/'
+  - "/dev/tcp/"
+  - 'socat\s+.*exec:'
+  - "python.*socket.*subprocess"
+  - 'curl\s+-X\s+POST\s+.*\$\('
+  - 'wget\s+--post-data'
+
+  # Persistence / privilege escalation hints
+  - 'crontab\s+-e'
+  - '/etc/cron\.'
+  - 'systemctl\s+enable'
+  - 'systemctl\s+start'
+  - 'launchctl\s+load'
+  - 'schtasks\s+/create'
+  - 'Set-ExecutionPolicy\s+Bypass'
+  - 'powershell\s+-ExecutionPolicy\s+Bypass'
+  - 'powershell\s+-EncodedCommand'
+  - 'pwsh\s+-EncodedCommand'
+
+  # Unsafe GitHub Actions patterns
+  - "pull_request_target"
+  - 'contents:\s*write'
+  - 'id-token:\s*write'
+  - 'secrets:\s*inherit'
+  - 'uses:\s+.*@master'
+  - 'uses:\s+.*@main'
+  - 'run:\s+.*\$\{\{\s*github\.event\.pull_request\.'
+  - 'run:\s+.*\$\{\{\s*github\.event\.issue\.'
+  - 'run:\s+.*\$\{\{\s*github\.event\.comment\.'
+
+  # Dangerous HTML / SVG / browser payloads
+  - "<script"
+  - "javascript:"
+  - "data:text/html"
+  - 'onerror\s*='
+  - 'onload\s*='
+  - "<iframe"
+  - "<object"
+  - "<embed"
+  - "<svg"
+  - "xlink:href"
+
+  # Suspicious package installation patterns
+  - 'npm\s+install\s+-g'
+  - 'pip\s+install\s+.*--trusted-host'
+  - 'pip\s+install\s+.*--extra-index-url'
+  - 'cargo\s+install\s+.*--git'
+  - 'go\s+install\s+.*@latest'

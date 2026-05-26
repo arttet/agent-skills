@@ -1,0 +1,19 @@
+name: Daily Cache Cleanup
+
+on:
+  schedule:
+    - cron: "50 1 * * *" # Daily at 01:50 UTC
+  workflow_dispatch:
+
+jobs:
+  clear:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+
+    steps:
+      - name: Clear all caches
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh cache delete --all --repo ${{ github.repository }}
