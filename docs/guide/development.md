@@ -1,26 +1,33 @@
 # Development Workflow
 
-Agent Skills uses `just` as its primary task runner to ensure a consistent development experience.
+This page covers how to build a skill in this repository — from creating the
+directory through to opening a pull request.
 
 ## Core Philosophy
 
-- **Portability:** Skills should work in any agent that can read and follow instructions from Markdown files.
-- **Safety:** Skills emphasize planning and analysis over direct action, ensuring you remain in control of your system.
-- **Efficiency:** Lean metadata (`SKILL.md`) is loaded upfront, while detailed references and examples are fetched only when needed.
-- **Developer Experience:** Standardized structure and automated validation using the `just` task runner.
+- **Portability** — a skill runs in any agent that reads instructions from
+  Markdown files.
+- **Safety** — skills plan and analyze rather than act, so you stay in control
+  of your system.
+- **Efficiency** — a lean `SKILL.md` loads upfront; detailed references and
+  examples load only when a task needs them.
+- **Developer experience** — a standardized structure and automated validation
+  keep every skill consistent.
 
 ## Format Standard
 
-This project uses the Agent Skills format as its portability baseline:
+This project follows the Agent Skills format as its portability baseline:
 
 - [Agent Skills home](https://agentskills.io/home)
 - [Agent Skills specification](https://agentskills.io/specification)
 
 ## Workflow Steps
 
-1. **Create a Skill:** Create a new directory under `skills/`.
-2. **Implement:** Add a `SKILL.md` and any necessary optional resources.
-3. **Validate:** Run `just validate` to ensure your skill follows the required format.
-4. **Lint:** Run `just lint` to check for common issues.
-5. **Document:** Add a dedicated page for your skill under `docs/skills/`.
-6. **Update AGENTS.md:** Add a short link to the skill in the `AGENTS.md` skills list.
+1. **Create** — add a new directory under `skills/`.
+2. **Implement** — write the `SKILL.md` and any optional resources. See
+   [Skill Authoring](./skill-authoring).
+3. **Validate** — confirm the skill matches the format. See
+   [Validation](./validation).
+4. **Lint** — check formatting and prose against the project rules.
+5. **Document** — add a page for the skill under `docs/skills/`.
+6. **Update AGENTS.md** — add a short link to the skill in the `AGENTS.md` list.

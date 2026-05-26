@@ -2,7 +2,7 @@
 
 A skill is one `SKILL.md` file plus optional resources. This guide covers how to
 write a `SKILL.md` that an agent follows reliably. For the directory anatomy,
-see [Skill Format](../reference/skill-format).
+see [Skill Format](./reference/skill-format).
 
 ## File frontmatter
 

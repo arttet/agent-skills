@@ -26,7 +26,12 @@ eza . --tree --level=5 --git-ignore --icons=never --color=never
 │   │   ├── contributing.md
 │   │   ├── development.md
 │   │   ├── getting-started.md
-│   │   ├── introduction.md
+│   │   ├── reference
+│   │   │   ├── ci-cd.md
+│   │   │   ├── commands.md
+│   │   │   ├── index.md
+│   │   │   ├── skill-format.md
+│   │   │   └── structure.md
 │   │   ├── skill-authoring.md
 │   │   └── validation.md
 │   ├── index.md
@@ -36,12 +41,6 @@ eza . --tree --level=5 --git-ignore --icons=never --color=never
 │   │   ├── logo-light.svg
 │   │   └── logo.svg
 │   ├── README.md
-│   ├── reference
-│   │   ├── ci-cd.md
-│   │   ├── commands.md
-│   │   ├── index.md
-│   │   ├── skill-format.md
-│   │   └── structure.md
 │   └── skills
 │       ├── git-commit-planner.md
 │       └── index.md

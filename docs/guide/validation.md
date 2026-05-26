@@ -1,7 +1,7 @@
 # Validation
 
 `skill-validator` checks every skill before it merges. Run it locally with the
-[`just`](../reference/commands) recipes and resolve what it reports.
+[`just`](./reference/commands) recipes and resolve what it reports.
 
 ## What It Checks
 
@@ -21,7 +21,7 @@ just validate
 
 `just validate` runs structure, link, content, and contamination analysis.
 `just check` adds the strict gate plus formatting checks. See
-[Commands](../reference/commands) for the full recipe list.
+[Commands](./reference/commands) for the full recipe list.
 
 ## Read and Resolve the Output
 
@@ -32,4 +32,4 @@ each before opening a pull request:
 - **Broken link** — fix the path or remove the dead reference.
 - **Over budget** — move detail into `references/` to shrink `SKILL.md`.
 
-CI runs the same gate on every pull request; see [CI/CD](../reference/ci-cd).
+CI runs the same gate on every pull request; see [CI/CD](./reference/ci-cd).

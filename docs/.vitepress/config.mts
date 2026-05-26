@@ -34,7 +34,6 @@ export default defineConfig({
       { text: "Home", link: "/" },
       { text: "Guide", link: "/guide/getting-started" },
       { text: "Skills", link: "/skills/" },
-      { text: "Reference", link: "/reference/" },
     ],
 
     sidebar: {
@@ -52,6 +51,16 @@ export default defineConfig({
             { text: "Contributing", link: "/guide/contributing" },
           ],
         },
+        {
+          text: "Reference",
+          items: [
+            { text: "Overview", link: "/guide/reference/" },
+            { text: "Skill Format", link: "/guide/reference/skill-format" },
+            { text: "Repository Structure", link: "/guide/reference/structure" },
+            { text: "Commands", link: "/guide/reference/commands" },
+            { text: "CI/CD", link: "/guide/reference/ci-cd" },
+          ],
+        },
       ],
       "/skills/": [
         {
@@ -59,18 +68,6 @@ export default defineConfig({
           items: [
             { text: "Overview", link: "/skills/" },
             { text: "Git Commit Planner", link: "/skills/git-commit-planner" },
-          ],
-        },
-      ],
-      "/reference/": [
-        {
-          text: "Reference",
-          items: [
-            { text: "Overview", link: "/reference/" },
-            { text: "Skill Format", link: "/reference/skill-format" },
-            { text: "Repository Structure", link: "/reference/structure" },
-            { text: "Commands", link: "/reference/commands" },
-            { text: "CI/CD", link: "/reference/ci-cd" },
           ],
         },
       ],
