@@ -22,12 +22,3 @@ indent_size = unset
 # Justfile — recipe bodies use the indentation just expects
 [Justfile]
 indent_size = 4
-
-# Lock files are generated; don't fight the tooling
-#[*.lock]
-#insert_final_newline = false
-#trim_trailing_whitespace = false
-
-#[*-lock.json]
-#insert_final_newline = false
-#trim_trailing_whitespace = false

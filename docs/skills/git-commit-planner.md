@@ -59,3 +59,32 @@ Latest evaluation (`just evaluate`):
 | Directive Precision | 5/5    |
 | Novelty             | 3/5    |
 | Overall             | 4.17/5 |
+
+## Validation
+
+Latest validation (`just validate`):
+
+| Check           | Result                                                               |
+| --------------- | -------------------------------------------------------------------- |
+| `Structure`     | Passed: `SKILL.md` found                                             |
+| `Frontmatter`   | Passed: `git-commit-planner` name is valid; description is 277 chars |
+| `Markdown`      | Passed: no unclosed code fences                                      |
+| `Links`         | Passed: all link checks passed                                       |
+| `Content`       | Passed: content analysis complete                                    |
+| `Contamination` | Passed: contamination analysis complete                              |
+
+| Metric                    | Value             |
+| ------------------------- | ----------------- |
+| SKILL.md body             | 858 tokens        |
+| Total tokens              | 858 tokens        |
+| Word count                | 522               |
+| Code block ratio          | 0.15              |
+| Imperative ratio          | 0.13              |
+| Information density       | 0.14              |
+| Instruction specificity   | 1.00              |
+| Sections                  | 6                 |
+| List items                | 16                |
+| Code blocks               | 8                 |
+| Contamination level       | Low (score: 0.00) |
+| Primary language category | shell             |
+| Scope breadth             | 1                 |

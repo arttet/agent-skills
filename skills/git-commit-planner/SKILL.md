@@ -49,7 +49,7 @@ If `main` is missing, stop: ask the user to run `git fetch origin main`. Derive
 `<type>/<kebab-desc>` from the actual changes, keep it <=50 chars, and propose:
 
 ```bash
-git switch -c <type>/<name> main
+git switch -c <type>/<kebab-desc> main
 ```
 
 Always include `-c` and explicit `main`; agent worktree branches are not a safe

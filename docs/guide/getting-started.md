@@ -7,7 +7,7 @@ Follow these steps to install and start using [Agent Skills](https://agentskills
 
 ## Installation
 
-Install Agent Skills with the GitHub CLI's [`gh skill`](https://cli.github.com/manual/gh_skill_install#gh-skill-install) command, or with the [`skills`](https://www.skills.sh/) CLI through npm or Bun.
+Install Agent Skills with the GitHub CLI command [`gh skill`](https://cli.github.com/manual/gh_skill_install#gh-skill-install), or with the [`skills`](https://www.skills.sh/) CLI through npm or Bun.
 
 ::: code-group
 

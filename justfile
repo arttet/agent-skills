@@ -25,20 +25,8 @@ install:
 
     @echo ""
     @echo "📦 Installing EditorConfig tools..."
-    bun install --global @htmlacademy/editorconfig-cli
     go install github.com/editorconfig-checker/editorconfig-checker/v3/cmd/editorconfig-checker@latest
     @echo "✅ EditorConfig tools installed"
-
-    @echo ""
-    @echo "📝 Installing Markdown and spell check tools..."
-    bun install --global markdownlint-cli2
-    bun install --global cspell
-    @echo "✅ Markdown and spell check tools installed"
-
-    @echo ""
-    @echo "📄 Installing YAML lint tools..."
-    uv tool install yamllint
-    @echo "✅ YAML lint tools installed"
 
     @echo ""
     @echo "⚙️ Installing GitHub Actions lint tools..."
@@ -59,7 +47,7 @@ install:
 [group('Development')]
 fmt:
     @echo "✨ Formatting code..."
-    editorconfig-cli .
+    bunx editorconfig-cli .
     dprint fmt
     just --fmt
     @echo "✅ Code formatted!"
@@ -68,18 +56,18 @@ fmt:
 [group('Development')]
 lint:
     @echo "✨ Linting code..."
-    markdownlint-cli2 "**/*.md"
-    yamllint .
+    bunx markdownlint-cli2 "**/*.md"
+    uvx yamllint .
     actionlint -verbose
-    cspell .
-    vale --glob='!**/{node_modules,.vale}/**' .
+    bunx cspell .
+    vale --glob='!**/{node_modules,.vale,.vitepress}/**' .
     @echo "✅ Code linted!"
 
 [doc('Check skills')]
 [group('Development')]
 check:
     skill-validator check --strict {{ skill_dir }}
-    editorconfig-checker
+    bunx editorconfig-checker
     dprint check
     just --fmt --check
 
@@ -111,3 +99,25 @@ ci: fmt lint check validate
 
 [group: 'Documentation']
 mod docs 'misc/justfiles/docs.just'
+
+# ==============================================================================
+# Pull Requests
+# ==============================================================================
+
+[group: 'Pull Requests']
+mod pr 'misc/justfiles/pr.just'
+
+alias prc := pr::create
+alias prr := pr::review
+alias prv := pr::view
+
+# ==============================================================================
+# Deployment
+# ==============================================================================
+
+[group: 'Deployment']
+mod deploy 'misc/justfiles/deployment.just'
+
+alias dl := deploy::list
+alias dc := deploy::create
+alias dd := deploy::delete

@@ -2,6 +2,7 @@
   "name": "docs",
   "devDependencies": {
     "@types/bun": "latest",
+    "oxc-minify": "^0.133.0",
     "vitepress": "^2.0.0-alpha.17",
     "vitepress-plugin-group-icons": "^1.6.4",
     "vitepress-plugin-llms": "^1.8.1"

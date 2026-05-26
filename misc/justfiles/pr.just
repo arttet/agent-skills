@@ -13,7 +13,7 @@ view n="":
     set -euo pipefail
     # set -x
 
-    OUT_DIR=${BUILD_DIR}/pr
+    OUT_DIR="${BUILD_DIR:-build}/pr"
     OWNER="$(gh repo view --json owner --jq '.owner.login')"
     REPO="$(gh repo view --json name --jq '.name')"
     PR="{{ n }}"
@@ -22,14 +22,14 @@ view n="":
         PR="$(gh pr view --json number --jq '.number')"
     fi
 
-    mkdir -p ${OUT_DIR}
-    gh pr view {{ n }} --comments >> "${OUT_DIR}/pr-${PR}-comments.md"
+    mkdir -p "${OUT_DIR}"
+    gh pr view "$PR" --comments > "${OUT_DIR}/pr-${PR}-comments.md"
 
     gh api graphql \
       -F owner="$OWNER" \
       -F repo="$REPO" \
-      -F pr="$PR" \
+      -f pr="$PR" \
       -f query='query($owner: String!, $repo: String!, $pr: Int!) { repository(owner: $owner, name: $repo) { pullRequest(number: $pr) { reviewThreads(first: 100) { nodes { isResolved comments(first: 100) { nodes { author { login } body path line createdAt } } } } } } }' \
-      >> "${OUT_DIR}/pr-${PR}-comments.json"
+      > "${OUT_DIR}/pr-${PR}-comments.json"
 
     echo "✅ Saved PR info"
