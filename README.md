@@ -1,5 +1,6 @@
 # Agent Skills
 
+[![CI](https://github.com/arttet/agent-skills/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/arttet/agent-skills/actions/workflows/ci.yml)
 [![Docs](https://img.shields.io/badge/docs-VitePress-blue.svg)](https://skills.arttet.dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -10,7 +11,7 @@ Portable, reusable skills for AI coding agents across different tools and workfl
 Install the skills with GitHub CLI:
 
 ```sh
-gh skill install arttet/agent-skills --agent opencode --scope user
+gh skill install arttet/agent-skills
 ```
 
 For other installation methods, see the documentation.
@@ -65,6 +66,18 @@ Available recipes:
         dev     # Serve docs
         build   # Build docs
         preview # Preview docs
+
+    [Pull Requests]
+    pr:
+        create      # Create a new Pull Request
+        review n="" # Ask Gemini to review the Pull Request
+        view n=""   # View comments for the Pull Request
+
+    [Deployment]
+    deploy:
+        list        # List Cloudflare Pages projects
+        create name # Create a Cloudflare Pages project
+        delete name # Delete a Cloudflare Pages project
 ```
 
 ## License

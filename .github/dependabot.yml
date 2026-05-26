@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: bun
-    directory: /
+    directory: "/docs"
     schedule:
       interval: weekly
     cooldown:
