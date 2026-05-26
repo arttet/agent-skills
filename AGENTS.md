@@ -27,7 +27,7 @@ For commit planning, staging, branch naming, or "what should I commit", use the
 
 For creating or updating skills, use the `skill-creator` skill.
 
-For repository layout, link to `docs/reference/structure.md`; do not duplicate
+For repository layout, link to `docs/guide/reference/structure.md`; do not duplicate
 the directory tree in other docs or prompts.
 
 ## Rules (apply whenever git is touched)
