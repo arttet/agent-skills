@@ -1,0 +1,12 @@
+scanners:
+  - vuln
+  - secret
+  - misconfig
+
+severity:
+  - CRITICAL
+  - HIGH
+  - MEDIUM
+
+ignore-unfixed: true
+hide-progress: true

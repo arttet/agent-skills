@@ -1,0 +1,29 @@
+---
+yaml-files:
+  - "*.yaml"
+  - "*.yml"
+
+ignore:
+  - "**/node_modules/**"
+  - "**/.vale/**"
+
+rules:
+  document-start: disable
+
+  line-length:
+    max: 180
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
+
+  truthy:
+    allowed-values: ["true", "false", "on", "off"]
+
+  comments:
+    min-spaces-from-content: 1
+
+  indentation:
+    spaces: 2
+    indent-sequences: true
+    check-multi-line-strings: false
+
+  new-line-at-end-of-file: disable

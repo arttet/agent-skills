@@ -1,0 +1,23 @@
+extends: existence
+message: "Avoid weak or vague wording: '%s'. Use direct operational language."
+level: warning
+ignorecase: true
+tokens:
+  - maybe
+  - perhaps
+  - probably
+  - basically
+  - obviously
+  - simply
+  - just
+  - easy
+  - trivial
+  - might
+  - could
+  - should probably
+  - in some cases
+  - somehow
+  - stuff
+  - things
+  - etc
+  - and so on

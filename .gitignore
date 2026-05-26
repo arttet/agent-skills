@@ -1,0 +1,13 @@
+# Node
+node_modules/
+cache/
+.score_cache/
+
+# Vale vendor styles (installed via `vale sync`)
+.vale/styles/*
+!.vale/styles/AI
+!.vale/styles/config
+
+# Dotenv environment variable files
+.env
+.env.local
