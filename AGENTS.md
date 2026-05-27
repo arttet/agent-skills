@@ -25,8 +25,6 @@ Each skill is a self-contained directory:
 For commit planning, staging, branch naming, or "what should I commit", use the
 `git-commit-planner` skill above. Do not improvise a commit plan without it.
 
-For creating or updating skills, use the `skill-creator` skill.
-
 For repository layout, link to `docs/guide/reference/structure.md`; do not duplicate
 the directory tree in other docs or prompts.
 

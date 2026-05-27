@@ -13,6 +13,7 @@ Run `just` (or `just help`) in the repository root to list every recipe.
 | `just check`          | Check skills and formatting: `skill-validator check --strict`, EditorConfig, `dprint check`, and `just --fmt --check`. |
 | `just validate`       | Validate skills: structure, links, content, and contamination analysis.                                                |
 | `just evaluate *args` | Score skills with `skill-validator score evaluate` (Claude CLI provider).                                              |
+| `just links`          | Build the docs site and link-check it (plus root and skill Markdown) with lychee. Requires `lychee` installed.         |
 | `just ci`             | Run the full local gate: `fmt`, `lint`, `check`, and `validate`.                                                       |
 
 ## Documentation

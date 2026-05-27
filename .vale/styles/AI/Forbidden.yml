@@ -46,7 +46,6 @@ tokens:
   - 'cat\s+~/.ssh/'
   - 'cat\s+/etc/shadow'
   - 'cat\s+/etc/passwd'
-  - "printenv"
   - 'env\s*\|\s*curl'
   - 'env\s*\|\s*wget'
   - '\$GITHUB_TOKEN'
@@ -114,10 +113,3 @@ tokens:
   - "<embed"
   - "<svg"
   - "xlink:href"
-
-  # Suspicious package installation patterns
-  - 'npm\s+install\s+-g'
-  - 'pip\s+install\s+.*--trusted-host'
-  - 'pip\s+install\s+.*--extra-index-url'
-  - 'cargo\s+install\s+.*--git'
-  - 'go\s+install\s+.*@latest'

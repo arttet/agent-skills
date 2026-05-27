@@ -25,6 +25,7 @@
     "dprint",
     "editorconfig",
     "elit",
+    "envrc",
     "exfiltration",
     "eza",
     "frontmatter",

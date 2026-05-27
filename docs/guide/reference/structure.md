@@ -8,7 +8,7 @@ reference repository structure should link here instead of reproducing it.
 If the structure below becomes outdated, regenerate it with:
 
 ```sh
-eza . --tree --level=5 --git-ignore --icons=never --color=never
+eza . --tree --level=6 --all --git-ignore --ignore-glob='.git' --icons=never --color=never
 ```
 
 :::
@@ -17,10 +17,38 @@ eza . --tree --level=5 --git-ignore --icons=never --color=never
 
 ```text
 .
+├── .editorconfig
+├── .envrc
+├── .github
+│   ├── CODEOWNERS
+│   ├── dependabot.yml
+│   └── workflows
+│       ├── cache-cleanup.yml
+│       └── ci.yml
+├── .gitignore
+├── .lychee.toml
+├── .markdownlint-cli2.yaml
+├── .vale
+│   └── styles
+│       ├── AI
+│       │   ├── Forbidden.yml
+│       │   └── WeakWords.yml
+│       └── config
+│           └── vocabularies
+│               └── Tech
+│                   └── accept.txt
+├── .vale.ini
+├── .yamllint.yml
 ├── AGENTS.md
 ├── CLAUDE.md
 ├── cspell.json
 ├── docs
+│   ├── .gitignore
+│   ├── .vitepress
+│   │   ├── config.mts
+│   │   └── theme
+│   │       ├── index.ts
+│   │       └── style.css
 │   ├── bun.lock
 │   ├── guide
 │   │   ├── contributing.md
@@ -50,7 +78,9 @@ eza . --tree --level=5 --git-ignore --icons=never --color=never
 ├── LICENSE
 ├── misc
 │   └── justfiles
-│       └── docs.just
+│       ├── deployment.just
+│       ├── docs.just
+│       └── pr.just
 ├── README.md
 ├── skills
 │   └── git-commit-planner
