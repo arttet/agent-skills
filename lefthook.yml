@@ -1,0 +1,28 @@
+pre-commit:
+  commands:
+    editorconfig-checker:
+      run: bunx editorconfig-checker {staged_files}
+    dprint:
+      glob: "**/*.{json,md,toml,yaml,yml}"
+      run: dprint check {staged_files}
+    just:
+      glob: "{justfile,**/*.just}"
+      run: |
+        for file in {staged_files}; do
+          just --justfile "$file" --fmt --check
+        done
+    markdownlint:
+      glob: "**/*.{md,mdx}"
+      run: bunx markdownlint-cli2 {staged_files}
+    yamllint:
+      glob: "**/*.{yml,yaml}"
+      run: uvx yamllint {staged_files}
+    actionlint:
+      glob: ".github/workflows/*.{yml,yaml}"
+      run: actionlint {staged_files}
+    cspell:
+      run: bunx cspell --no-progress {staged_files}
+    vale:
+      glob: "**/*.{md,mdx}"
+      exclude: "(^node_modules/|^.vale/|^docs/.vitepress/)"
+      run: vale {staged_files}
