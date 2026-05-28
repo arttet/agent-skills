@@ -6,7 +6,7 @@
 
 Portable, reusable skills for AI coding agents across different tools and workflows.
 
-## Install
+## 📥 Install
 
 Install the skills with GitHub CLI:
 
@@ -16,13 +16,13 @@ gh skill install arttet/agent-skills
 
 For other installation methods, see the documentation.
 
-## Skills
+## 🧠 Skills
 
 | Skill                                                      | What it does                                                                                                                               |
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | [`git-commit-planner`](skills/git-commit-planner/SKILL.md) | Analyzes changes and branch context, splits work into signed Conventional Commits, and outputs a copy-paste plan. Never commits or pushes. |
 
-## Project Resources
+## 🔗 Project Resources
 
 Useful project resources:
 
@@ -30,7 +30,7 @@ Useful project resources:
 | ------------- | --------------------------- |
 | Documentation | <https://skills.arttet.dev> |
 
-## Management & Development
+## ⚙️ Management & Development
 
 Prerequisites for local development:
 
@@ -43,10 +43,8 @@ Prerequisites for local development:
 
 This project uses `just` as the primary task runner for development, validation,
 documentation, and deployment workflows. Run `just help` for the full list of
-recipes; see the
-[Commands reference](https://skills.arttet.dev/guide/contributors/commands)
-for details.
+recipes; see the [Commands reference](https://skills.arttet.dev/guide/contributors/commands) for details.
 
-## License
+## 📄 License
 
 [MIT](LICENSE)
