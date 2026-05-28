@@ -10,13 +10,15 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read # Default read-only for all jobs
+
 jobs:
   clear:
     name: Clear Caches
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read # Default read-only for all jobs
       actions: write # Minimum required to list and delete caches via gh CLI
 
     steps:

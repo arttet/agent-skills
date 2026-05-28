@@ -1,5 +1,5 @@
 set dotenv-load
-set dotenv-filename := ".env"
+set dotenv-path := ".envrc"
 
 skill_dir := "skills"
 
@@ -42,6 +42,10 @@ install:
     @echo "✍️ Syncing Vale packages..."
     vale sync
     @echo "✅ Vale packages synced"
+
+    @echo ""
+    @echo "🔗 Checking for lychee (link checker)..."
+    @command -v lychee >/dev/null 2>&1 && echo "✅ lychee found" || echo "ℹ️  lychee not found — install it for 'just links' (e.g. cargo install lychee; see https://lychee.cli.rs)"
 
 [doc('Format code')]
 [group('Development')]
@@ -88,6 +92,14 @@ evaluate *args:
     skill-validator score evaluate --provider claude-cli {{ skill_dir }} {{ args }}
     gh skill publish --dry-run
     @echo "✅ Evaluation complete!"
+
+[doc('Check links in the built docs site')]
+[group('Development')]
+links:
+    @echo "🔗 Checking links..."
+    just docs build
+    lychee --config .lychee.toml --verbose --root-dir "$(pwd)/docs/.vitepress/dist" docs/.vitepress/dist *.md skills
+    @echo "✅ Links checked!"
 
 [doc('Run CI checks')]
 [group('Development')]
