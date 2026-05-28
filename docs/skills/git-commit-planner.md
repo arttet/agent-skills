@@ -53,12 +53,12 @@ Latest evaluation (`just evaluate`):
 | Metric              | Score  |
 | ------------------- | ------ |
 | Clarity             | 4/5    |
-| Actionability       | 4/5    |
+| Actionability       | 5/5    |
 | Token Efficiency    | 4/5    |
 | Scope Discipline    | 5/5    |
 | Directive Precision | 5/5    |
 | Novelty             | 3/5    |
-| Overall             | 4.17/5 |
+| Overall             | 4.33/5 |
 
 ## Validation
 
@@ -67,7 +67,7 @@ Latest validation (`just validate`):
 | Check           | Result                                                               |
 | --------------- | -------------------------------------------------------------------- |
 | `Structure`     | Passed: `SKILL.md` found                                             |
-| `Frontmatter`   | Passed: `git-commit-planner` name is valid; description is 277 chars |
+| `Frontmatter`   | Passed: `git-commit-planner` name is valid; description is 271 chars |
 | `Markdown`      | Passed: no unclosed code fences                                      |
 | `Links`         | Passed: all link checks passed                                       |
 | `Content`       | Passed: content analysis complete                                    |
@@ -75,14 +75,14 @@ Latest validation (`just validate`):
 
 | Metric                    | Value             |
 | ------------------------- | ----------------- |
-| SKILL.md body             | 858 tokens        |
-| Total tokens              | 858 tokens        |
-| Word count                | 522               |
-| Code block ratio          | 0.15              |
-| Imperative ratio          | 0.13              |
-| Information density       | 0.14              |
+| SKILL.md body             | 944 tokens        |
+| Total tokens              | 944 tokens        |
+| Word count                | 586               |
+| Code block ratio          | 0.17              |
+| Imperative ratio          | 0.17              |
+| Information density       | 0.17              |
 | Instruction specificity   | 1.00              |
-| Sections                  | 6                 |
+| Sections                  | 7                 |
 | List items                | 16                |
 | Code blocks               | 8                 |
 | Contamination level       | Low (score: 0.00) |

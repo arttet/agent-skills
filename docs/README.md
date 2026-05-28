@@ -1,6 +1,6 @@
 # Agent Skills Documentation
 
-This directory contains the source code for the Agent Skills documentation site, built with [VitePress](https://vitepress.dev/).
+This directory contains the source code for the Agent Skills documentation site.
 
 ## Development
 

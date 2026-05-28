@@ -13,4 +13,8 @@ exclude = [
   "0.0.0.0",
   # Self-hosted docs site; do not fail CI when its origin is unreachable.
   "^https?://skills\\.arttet\\.dev",
+  # TEMP: self-references to files on `main` that have not been pushed yet
+  # (chicken-and-egg with the first PR adding them). Remove this entry once
+  # the targets exist on the default branch.
+  "^https?://github\\.com/arttet/agent-skills/blob/main/",
 ]

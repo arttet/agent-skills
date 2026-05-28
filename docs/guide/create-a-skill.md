@@ -1,17 +1,31 @@
-# Skill Authoring
+# Create a Skill
 
-A skill is one `SKILL.md` file plus optional resources. This guide covers how to
-write a `SKILL.md` that an agent follows reliably. For the directory anatomy,
-see [Skill Format](./reference/skill-format).
+A skill is one `SKILL.md` file plus optional resources. This guide shows how to
+write a skill that any agent can follow reliably.
 
-## File frontmatter
+::: tip Use Your Agent's Skill Creator
 
-Open the file with YAML frontmatter:
+Most agents have a built-in skill creator that can scaffold a new skill for you.
+If you prefer to let the agent generate the initial structure, see [Using Skills](./using-skills) for how to activate it in your environment.
+
+:::
+
+## Quick Start
+
+Create a directory and a `SKILL.md`:
+
+```sh
+mkdir skills/my-skill
+cd skills/my-skill
+touch SKILL.md
+```
+
+Open `SKILL.md` and add frontmatter:
 
 ```yaml
 ---
-name: git-commit-planner
-description: Analyze git changes, split them into signed commits, and output a copy-paste plan. Use when the user asks to commit or stage changes.
+name: my-skill
+description: What this skill does and when the agent should use it.
 metadata:
   author: your-handle
 ---
@@ -23,9 +37,6 @@ metadata:
 | `description`     | yes      | What the skill does and when to invoke it — the agent reads this to decide relevance. |
 | `metadata.author` | no       | Attribution for the skill author.                                                     |
 
-Write the `description` as capability plus trigger: state what the skill
-produces, then the phrases that activate it.
-
 ## Body Structure
 
 Order the body so the agent reads rules before steps:
@@ -34,28 +45,26 @@ Order the body so the agent reads rules before steps:
    limits first.
 2. **Workflow** — numbered steps the agent walks through, each with the exact
    command or check.
-3. **Output format** — what the agent hands back. For the example skill, that
-   is a copy-paste command plan.
+3. **Output format** — what the agent hands back.
 
 The shipped [`git-commit-planner`](../skills/git-commit-planner) follows this
 shape: `Hard Rules`, then numbered sections `1. Branch` through `5. Plan`.
 
-## Writing for Agents
+## Writing Tips
 
 - **Use imperative voice.** Address the agent directly: "Inspect staged
   changes," not "the agent should look at changes."
-- **Prefer explicit examples over abstract rules.** Show the exact command in a
-  fenced block instead of describing it in prose.
-- **Respect a token budget.** Keep `SKILL.md` under roughly 1000 tokens. Move
-  long material into `references/` so it loads on demand.
+- **Show examples.** Use fenced code blocks instead of describing commands in prose.
+- **Stay concise.** Keep `SKILL.md` under roughly 1000 tokens. Move long material
+  into `references/` so it loads on demand.
 
-## Anti-Patterns
+## Common Mistakes
 
 - **Do not teach the tool's basics.** A Git skill enforces commit policy; it
   does not explain what a commit is.
 - **Do not inline long examples.** Link them from `references/` instead of
   enlarging `SKILL.md`.
 - **Do not assume one shell.** Provide both bash and PowerShell forms when a
-  command differs, as the example skill does.
+  command differs.
 
-After drafting, run the checks in [Validation](./validation).
+After drafting, run the checks in [Validate and Test](./validate-and-test).
