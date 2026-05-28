@@ -1,6 +1,7 @@
 # Skill Format
 
-Each skill is a self-contained directory under `skills/`. A skill needs only a
+[Agent Skills](https://agentskills.io/home) is a collection of portable, reusable skills for AI agents. Each
+skill is a self-contained directory under `skills/`. A skill needs only a
 `SKILL.md`; the other files are optional and loaded on demand.
 
 ```text
@@ -27,4 +28,4 @@ Lean metadata is loaded upfront, so put only non-obvious workflow rules in
 resources above, and reference them only when they are truly needed.
 
 For where these directories sit in the wider repository, see
-[Repository Structure](./structure).
+[Repository Structure](./contributors/structure).

@@ -1,10 +1,16 @@
 ---
 name: git-commit-planner
-description: Analyze git changes, check branch context including agent worktrees, split into signed Conventional Commits, and output an exact copy-paste plan. Never commit or push. Use when the user asks to commit, stage changes, craft a commit message, or split work into multiple commits.
+description: Analyze git changes, check branch context including agent worktrees, split into signed Conventional Commits, and output an exact copy-paste plan. Never commit or push. Use when the user asks for a commit plan, staging plan, commit message, or split into multiple commits.
 ---
 
-Enforce this repository's commit policy. Do not teach Git or execute mutating
-commands; output mutating commands only as a copy-paste plan for the user.
+Enforce this repository's commit policy. Do not teach Git or run mutating git
+commands; provide mutating commands only as a copy-paste plan for the user.
+
+## Token Budget
+
+Keep analysis and output concise. Do not paste full diffs, full status output,
+or long Git explanations. Summarize only the facts needed to justify blockers,
+commit splits, exclusions, and the final copy-paste plan.
 
 ## Hard Rules
 
@@ -18,7 +24,9 @@ GIT_TERMINAL_PROMPT=0 GIT_EDITOR=: git --no-pager <subcommand> <args>
 - In PowerShell: `$env:GIT_TERMINAL_PROMPT=0; $env:GIT_EDITOR=':'; git --no-pager ...`
 - Every proposed commit must use `git commit -S`. If signing is unavailable,
   tell the user to fix GPG/signing; do not offer an unsigned fallback.
-- Never propose `--no-gpg-sign`, `git push --force`, `git add -p`, `git checkout -b`, `git rebase`, `git cherry-pick`, `GIT_PAGER=cat`, or `PAGER=cat`.
+- Never propose `--no-gpg-sign`, `git push --force`, `git add -p`,
+  `git checkout -b`, `git rebase`, `git cherry-pick`, `GIT_PAGER=cat`, or
+  `PAGER=cat`.
 - Ask before any history rewrite; if confirmed, use `git push --force-with-lease`.
 - Treat `agent/*` worktree branches as disposable; never base user work on them.
 
@@ -32,9 +40,11 @@ git branch --show-current
 Classify the branch:
 
 ```text
-A) feat/fix/chore/docs/refactor/perf/test/build/ci/style/* -> run branch -vv
-B) main/master/develop/dev/staging/production/release/*     -> propose branch
-C) agent/*/claude/*/codex/*/cursor/*/opencode/*             -> propose branch
+A) feat/*, fix/*, chore/*, docs/*, refactor/*, perf/*,
+   test/*, build/*, ci/*, style/*                         -> run branch -vv
+B) main, master, develop, dev, staging, production,
+   release/*                                               -> propose branch
+C) agent/*, claude/*, codex/*, cursor/*, opencode/*        -> propose branch
 ```
 
 For B or C:
@@ -88,8 +98,8 @@ Before splitting, report:
 Secrets -> stop, no plan; tell the user to remove them and suggest
 `git-secrets` or `trufflehog`.
 
-For debug leftovers or formatting churn, list occurrences and exclude them
-unless the user explicitly confirms inclusion.
+For debug leftovers or formatting churn, list occurrences and exclude those
+files unless the user explicitly confirms inclusion.
 
 ## 4. Split
 
@@ -102,13 +112,13 @@ One commit equals one logical concern. Split these mixes:
 - dependency bump vs behavior change
 - unrelated fixes, even in one file
 
-For each group, state `what changed` and `why`. Use Conventional Commits:
-valid type/scope, imperative subject <=72 chars, and `!` or `BREAKING CHANGE:`
-only for real breaking changes.
+For each group, identify `what changed` and `why` before writing the commit
+command. Use Conventional Commits: valid type/scope, imperative subject <=72
+chars, and `!` or `BREAKING CHANGE:` only for real breaking changes.
 
 ## 5. Plan
 
-Output only a copy-paste plan. Repeat per group:
+Output the final result as a copy-paste plan. Repeat per group:
 
 ```bash
 git add <explicit-files-for-group>

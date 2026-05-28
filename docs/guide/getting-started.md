@@ -1,9 +1,8 @@
 # Getting Started
 
-[Agent Skills](https://agentskills.io/home) is a collection of portable, reusable skills for AI agents. These
-skills are designed to work across multiple agent environments, including Claude Code, Gemini CLI, OpenCode, Kimi CLI, and Codex.
+[Agent Skills](https://agentskills.io/home) is a collection of portable, reusable skills for AI agents. Once installed, your agent gains new capabilities, from planning git commits to validating code, without you having to write prompts from scratch.
 
-Follow these steps to install and start using [Agent Skills](https://agentskills.io/home) in your local environment.
+This guide shows how to install the skill collection and activate it in your agent environment.
 
 ## Installation
 
@@ -38,4 +37,4 @@ Install or choose at least one AI agent environment:
 | Kimi CLI          | <https://www.kimi.com/code/docs/en/>                      |
 
 For local contribution and validation tooling, see the
-[development workflow](./development).
+[contributor workflow](./contributors/workflow).

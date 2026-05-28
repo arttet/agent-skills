@@ -11,4 +11,5 @@ config:
 ignores:
   - "**/node_modules/**"
   - "**/.vitepress/cache/**"
+  - "**/.vitepress/dist/**"
   - "**/.vale/**"

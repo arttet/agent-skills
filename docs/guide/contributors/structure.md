@@ -51,22 +51,21 @@ eza . --tree --level=6 --all --git-ignore --ignore-glob='.git' --icons=never --c
 │   │       └── style.css
 │   ├── bun.lock
 │   ├── guide
-│   │   ├── contributing.md
-│   │   ├── development.md
 │   │   ├── getting-started.md
-│   │   ├── reference
-│   │   │   ├── ci-cd.md
-│   │   │   ├── commands.md
-│   │   │   ├── index.md
-│   │   │   ├── skill-format.md
-│   │   │   └── structure.md
+│   │   ├── using-skills.md
+│   │   ├── skill-format.md
+│   │   ├── create-a-skill.md
+│   │   ├── validate-and-test.md
 │   │   ├── skill-authoring.md
-│   │   └── validation.md
+│   │   ├── validation.md
+│   │   └── contributors
+│   │       ├── workflow.md
+│   │       ├── commands.md
+│   │       ├── ci-cd.md
+│   │       └── structure.md
 │   ├── index.md
 │   ├── package.json
 │   ├── public
-│   │   ├── github.svg
-│   │   ├── logo-light.svg
 │   │   └── logo.svg
 │   ├── README.md
 │   └── skills
@@ -89,4 +88,4 @@ eza . --tree --level=6 --all --git-ignore --ignore-glob='.git' --icons=never --c
 ```
 
 For the layout of an individual skill directory, see
-[Skill Format](./skill-format).
+[Skill Format](../skill-format).

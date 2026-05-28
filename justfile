@@ -67,14 +67,6 @@ lint:
     vale --glob='!**/{node_modules,.vale,.vitepress}/**' .
     @echo "✅ Code linted!"
 
-[doc('Check skills')]
-[group('Development')]
-check:
-    skill-validator check --strict {{ skill_dir }}
-    bunx editorconfig-checker
-    dprint check
-    just --fmt --check
-
 [doc('Validate skills')]
 [group('Development')]
 validate:
@@ -90,12 +82,15 @@ validate:
 evaluate *args:
     @echo "🔍 Evaluating skills..."
     skill-validator score evaluate --provider claude-cli {{ skill_dir }} {{ args }}
-    gh skill publish --dry-run
     @echo "✅ Evaluation complete!"
 
-[doc('Check links in the built docs site')]
+[doc('Check skills')]
 [group('Development')]
-links:
+check:
+    skill-validator check --strict {{ skill_dir }}
+    bunx editorconfig-checker
+    dprint check
+    just --fmt --check
     @echo "🔗 Checking links..."
     just docs build
     lychee --config .lychee.toml --verbose --root-dir "$(pwd)/docs/.vitepress/dist" docs/.vitepress/dist *.md skills
@@ -103,7 +98,7 @@ links:
 
 [doc('Run CI checks')]
 [group('Development')]
-ci: fmt lint check validate
+ci: fmt lint validate check
 
 # ==============================================================================
 # Documentation
