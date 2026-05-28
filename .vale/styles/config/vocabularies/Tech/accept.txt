@@ -11,6 +11,8 @@ env
 frontmatter
 inlining
 Justfile
+lefthook
+Lefthook
 Kimi
 markdownlint
 npm

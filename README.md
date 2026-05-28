@@ -45,6 +45,20 @@ This project uses `just` as the primary task runner for development, validation,
 documentation, and deployment workflows. Run `just help` for the full list of
 recipes; see the [Commands reference](https://skills.arttet.dev/guide/contributors/commands) for details.
 
+## 🪝 Optional Git Hooks
+
+Git hooks run linting and formatting checks in parallel via Lefthook. Install locally:
+
+```sh
+bunx lefthook install
+```
+
+Run manually against your working tree:
+
+```sh
+bunx lefthook run pre-commit
+```
+
 ## 📄 License
 
 [MIT](LICENSE)
