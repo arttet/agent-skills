@@ -93,6 +93,7 @@ jobs:
       - name: Spell Check
         uses: streetsidesoftware/cspell-action@de2a73e963e7443969755b648a1008f77033c5b2 # v8.4.0
         with:
+          check_dot_files: true
           files: |
             **/*.{md,mdx,txt,yml,yaml,json,jsonc,toml}
 

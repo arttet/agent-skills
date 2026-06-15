@@ -24,6 +24,11 @@ install:
     @echo "✨ Installing Dependencies..."
 
     @echo ""
+    @echo "📚 Installing documentation dependencies..."
+    cd docs && bun install
+    @echo "✅ Documentation dependencies installed"
+
+    @echo ""
     @echo "📦 Installing EditorConfig tools..."
     go install github.com/editorconfig-checker/editorconfig-checker/v3/cmd/editorconfig-checker@latest
     @echo "✅ EditorConfig tools installed"
@@ -46,6 +51,13 @@ install:
     @echo ""
     @echo "🔗 Checking for lychee (link checker)..."
     @command -v lychee >/dev/null 2>&1 && echo "✅ lychee found" || echo "ℹ️  lychee not found — install it for 'just links' (e.g. cargo install lychee; see https://lychee.cli.rs)"
+
+[doc('Audit dependencies')]
+[group('Development')]
+audit:
+    @echo "🔍 Auditing dependencies..."
+    bun --cwd docs audit
+    @echo "✅ Audit complete!"
 
 [doc('Format code')]
 [group('Development')]
@@ -98,7 +110,7 @@ check:
 
 [doc('Run CI checks')]
 [group('Development')]
-ci: fmt lint validate check
+ci: audit fmt lint validate check
 
 # ==============================================================================
 # Documentation

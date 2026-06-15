@@ -4,6 +4,7 @@
   "ignorePaths": [".git/**", "**/node_modules/**", "**/*.lock"],
   "words": [
     "Artyom",
+    "Anson",
     "Kimi",
     "Lefthook",
     "Qwen",
@@ -34,6 +35,7 @@
     "frontmatter",
     "gitattributes",
     "gitleaks",
+    "ibiqlik",
     "justfile",
     "justfiles",
     "kebab",
@@ -50,6 +52,7 @@
     "noopener",
     "noreferrer",
     "opencode",
+    "pkill",
     "preconnect",
     "prefetch",
     "preload",
@@ -73,6 +76,7 @@
     "xlink",
     "yamllint",
     "zizmor",
+    "zizmorcore",
     "zwitch"
   ],
   "flagWords": [],
