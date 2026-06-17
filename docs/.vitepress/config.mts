@@ -165,7 +165,8 @@ export default defineConfig({
     ],
 
     editLink: {
-      pattern: "https://github.com/arttet/agent-skills/edit/main/docs/src/:path",
+      pattern:
+        "https://github.com/arttet/agent-skills/edit/main/docs/src/:path",
       text: "Edit this page on GitHub",
     },
 
