@@ -3,7 +3,7 @@ pre-commit:
     editorconfig-checker:
       run: bunx editorconfig-checker {staged_files}
     dprint:
-      glob: "**/*.{json,md,toml,yaml,yml}"
+      glob: "**/*.{js,mjs,cjs,ts,mts,cts,tsx,jsx,json,md,mdc,mdx,toml,yaml,yml}"
       run: dprint check {staged_files}
     just:
       glob: "{justfile,**/*.just}"

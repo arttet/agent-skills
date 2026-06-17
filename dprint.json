@@ -4,16 +4,40 @@
   "indentWidth": 2,
   "newLineKind": "lf",
   "useTabs": false,
+  "oxc": {
+    "lineEnding": "lf",
+    "indentWidth": 2,
+    "indentStyle": "space",
+    "lineWidth": 80,
+    "semicolons": "always",
+    "quoteStyle": "double",
+    "trailingCommas": "all",
+    "experimentalSortImports": {
+      "order": "asc",
+      "ignoreCase": true,
+      "newlinesBetween": true,
+      "sortSideEffects": false,
+      "partitionByNewline": false
+    }
+  },
   "json": {},
   "markdown": {
     "textWrap": "maintain"
   },
   "yaml": {},
-  "excludes": ["**/node_modules", ".cache", ".git", "LICENSE"],
+  "excludes": [
+    "**/node_modules",
+    ".cache",
+    ".git",
+    "LICENSE",
+    "docs/.vitepress/cache/**",
+    "docs/.vitepress/dist/**"
+  ],
   "plugins": [
     "https://plugins.dprint.dev/markdown-0.22.1.wasm",
     "https://plugins.dprint.dev/toml-0.7.0.wasm",
     "https://plugins.dprint.dev/json-0.21.3.wasm",
-    "https://plugins.dprint.dev/g-plane/pretty_yaml-v0.6.0.wasm"
+    "https://plugins.dprint.dev/g-plane/pretty_yaml-v0.6.0.wasm",
+    "https://plugins.dprint.dev/oxc-0.27.0.wasm"
   ]
 }
