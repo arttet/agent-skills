@@ -18,6 +18,8 @@ const OG_IMAGE_URL = `${SITE_URL}/logo.svg`;
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  srcDir: "src",
+
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
 
@@ -27,7 +29,7 @@ export default defineConfig({
     // to revise once one is adopted.
     ["link", { rel: "llms-project", href: "/llms.txt" }],
 
-    // Browser tab icon. Single SVG, points at docs/public/logo.svg.
+    // Browser tab icon. Single SVG, points at docs/src/public/logo.svg.
     ["link", { rel: "icon", type: "image/svg+xml", href: "/logo.svg" }],
 
     // Open Graph (Telegram / Discord / Slack / LinkedIn share cards).
@@ -163,7 +165,7 @@ export default defineConfig({
     ],
 
     editLink: {
-      pattern: "https://github.com/arttet/agent-skills/edit/main/docs/:path",
+      pattern: "https://github.com/arttet/agent-skills/edit/main/docs/src/:path",
       text: "Edit this page on GitHub",
     },
 

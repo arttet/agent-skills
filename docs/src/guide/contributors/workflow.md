@@ -17,7 +17,7 @@ Read these pages first:
 3. **Write** `SKILL.md` and optional resources.
 4. **Validate** — run `just validate` and `just evaluate`.
 5. **Lint** — run `just lint` to check formatting.
-6. **Document** — add a page under `docs/skills/` describing the skill.
+6. **Document** — add a page under `docs/src/skills/` describing the skill.
 7. **Update AGENTS.md** — add the skill to the list.
 8. **Submit** a pull request.
 
