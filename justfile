@@ -124,14 +124,3 @@ ci: audit fmt lint validate check
 
 [group: 'Documentation']
 mod docs 'misc/justfiles/docs.just'
-
-# ==============================================================================
-# Deployment
-# ==============================================================================
-
-[group: 'Deployment']
-mod deploy 'misc/justfiles/deployment.just'
-
-alias dl := deploy::list
-alias dc := deploy::create
-alias dd := deploy::delete
